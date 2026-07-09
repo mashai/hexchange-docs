@@ -6,7 +6,8 @@
 Getting the scene to a stable rough draft before any gameplay work begins. Not final art — just correct layout and working systems.
 
 **Remaining:**
-- [ ] **[URGENT] Resolve navmesh situation** — legacy baked navmesh from template, no NavMeshSurface found. Need to install AI Navigation package and set up NavMeshSurface to take over baking. Do this before any geometry changes.
+- [ ] **Navmesh agents walking through walls** — navmesh baked but agents ignore wall geometry. Likely missing colliders on walls or stale bake from pre-environment. Rebake after confirming wall colliders exist.
+- [ ] **Customers not spawning** — original StoreManager spawn logic is blocked somewhere. Needs investigation.
 - [ ] Adjust entrance to align with new exterior
 - [ ] Raise interior floor to match entrance level
 - [ ] Investigate why patio area is inaccessible
@@ -24,19 +25,39 @@ Getting the scene to a stable rough draft before any gameplay work begins. Not f
 - [x] Rough environment placed
 - [x] Adjusted store room bounds to fit new environment
 - [x] General scene cleanup — floors added, layout tidied
+- [x] NavMeshSurface installed on StoreManager (AI Navigation package)
 
 ---
 
-### 2. Shelf Model — *solo*
-Replacing the default CheckoutFrenzy shelf with one that fits the game's aesthetic. Blocked until scene blockout is stable.
+### 2. Replace Customer Prefabs — *solo/help TBD*
+Swap out the default CheckoutFrenzy customer models for ones that fit the game's aesthetic.
+Blocked until customer spawning is working.
 
-### 3. Book Product — *solo/help TBD*
-Creating a book as a product in the game — model, basic data definition. Blocked until scene blockout is stable.
+### 3. Shelf Model — *solo*
+Replacing the default CheckoutFrenzy shelf with one that fits the game's aesthetic.
+Blocked until scene blockout is stable.
 
-### 4. Delivery Box — *solo/help TBD*
-Creating the box that arrives when a book order is placed. Flagged as complex. Blocked until scene blockout is stable.
+### 4. Book Product — *solo/help TBD*
+Creating a book as a product in the game — model, basic data definition.
+Blocked until scene blockout is stable.
+
+### 5. Delivery Box — *solo/help TBD*
+Creating the box that arrives when a book order is placed. Flagged as complex.
+Blocked until scene blockout is stable.
 
 > **Design note (not in scope yet, but important):** When ordering e.g. "Basic Spell Book Level 1", the delivery should be a box *full* of that book type — same stats, but with different visual appearance variants. This is so shelves can be stocked with individual books. Keep this in mind when designing the box and book systems.
+
+### 6. Cauldron — *solo/help TBD*
+Add a cauldron to the dedicated space in the scene.
+Blocked until scene blockout is stable (cauldron space needs to exist first).
+
+### 7. Retrieving Delivery Boxes — *needs Claude's help*
+Player picks up delivery boxes from the summoning circle.
+Blocked until Shelf Model, Book Product, and Delivery Box are done.
+
+### 8. Till Repositioning — *solo*
+Move the till to its correct location in the new environment.
+Blocked until scene blockout is stable.
 
 ---
 
