@@ -65,7 +65,7 @@ friendship_tiers:
   friend: 40
   close_friend: 50
 
-romance_unlock_threshold: close_friend   # tier name or raw number
+open_to_romance: false         # whether this character can be romanced at all
 ```
 
 Ambient customer YAML:
@@ -106,7 +106,6 @@ They influence each other. What you say about a character to someone else can af
 Romance is not a single score state — it's a set of flags representing the nature of the relationship:
 
 ```
-has_lust
 has_romance
 is_exclusive
 ```
@@ -154,12 +153,14 @@ Any engine-exposed condition can be checked here — time of day, weather, moon 
 
 ### Meetups
 
-Dialogue actions can temporarily boost presence:
+Dialogue actions can temporarily boost presence. Ink function calls are positional only —
+no named arguments — so this is three separate functions rather than one function with
+optional/named args:
 
 ```
-set_meetup("clarisse", expires_after_visit = true)   # shows up once then resets
-set_meetup("ernst", expires_after_days = 3)
-set_meetup("clarisse", persistent = true)
+set_meetup_once("clarisse")        # shows up once then resets
+set_meetup_days("ernst", 3)        # expires after 3 days
+set_meetup_persistent("clarisse")  # stays until cancelled
 cancel_meetup("clarisse")
 ```
 
@@ -169,19 +170,26 @@ cancel_meetup("clarisse")
 
 Dialogue is written in **Ink**, a narrative scripting language designed to be readable by non-programmers. Ink handles conversation flow, branching, conditions, and actions.
 
-Modders can test their `.ink` files in **Inky**, a standalone editor, without opening Unity.
+Modders can test their `.ink` files in **Inky**, a standalone editor, without opening Unity —
+or compile with the `inkjs` compiler directly, which is what these files are actually
+verified against (see Ink Syntax Notes below).
 
-### Line Pools and Selection Strategies
+### Line Pools
+
+Ink has native syntax for a pool of interchangeable lines — no custom function needed:
 
 ```ink
-~ lines(["Hi.", "Hey there.", "Hello."], strategy: random_no_repeat)
+{~Hi.|Hey there.|Hello.}
 ```
 
-Available strategies:
-- `random` — fully random
-- `random_no_repeat` — random, never repeats the last used line
-- `ordered` — cycles in sequence
-- `once` — plays once, never shown again
+This is a **shuffle bag**: it plays through all the options in random order before
+reshuffling for the next pass. It doesn't guarantee the line right before a reshuffle
+can't be picked again right after — good enough for flavor lines, not a strict
+no-immediate-repeat guarantee.
+
+Two related forms:
+- `{&Hi.|Hey there.|Hello.}` — cycles in a fixed sequence, wrapping around forever.
+- `{!Hi.|Hey there.|Hello.}` — plays each once, in order, then produces nothing further.
 
 ### One-Time vs Repeatable Options
 
@@ -195,11 +203,14 @@ Available strategies:
 Each character has an optional init block that runs **once per playthrough** on first encounter. Use it to set starting flags, relationship status, or personality-driven state:
 
 ```ink
-=== clarisse_init ===
-~ set_relationship_flag("clarisse", "is_exclusive", false)
-~ unlock_flag("clarisse_met")
+=== ernst_init ===
+~ set_relationship_flag("ernst", "is_exclusive", false)
+~ unlock_flag("ernst_met")
 -> END
 ```
+
+Not every character needs one — Clarisse's, for example, is empty (`-> END` only), since
+none of her state needs a one-time setup step.
 
 ### Arc Completion
 
@@ -213,11 +224,12 @@ When a character's arc is complete, set a flag. Other characters' Ink files can 
 
 ## Condition Functions
 
-Readable functions usable inside Ink files to gate dialogue options:
+Readable functions usable inside Ink files to gate dialogue options. `friendship("clarisse")
+>= close_friend` reads naturally but isn't valid Ink — tier names aren't accessible inside
+`.ink` files, so compare against the raw number instead (63, in this example):
 
 ```
 has_knowledge("how_to_attract_vampires")
-friendship("clarisse") >= close_friend
 friendship("clarisse") >= 63
 romance("ernst") < 10
 talked_to("ernst", 5)
@@ -226,27 +238,92 @@ has_flag("ernst_arc_unlocked")
 has_relationship_flag("clarisse", "is_exclusive")
 story_level() >= 3
 seen("clarisse_first_meet")
+has_item("vampire_lure")
+bestiary_has_info("vampire", "weaknesses")
 has_variant("clarisse", "red_hair")
 time_of_day() == "night"
 is_full_moon()
 ```
+
+`seen(id)` isn't an Ink built-in, despite reading like one — Ink's own way to check a visit
+count is to reference the knot/stitch name directly (`{ not clarisse_first_meet: ... }`).
+It's listed here as a custom binding instead, purely so every file can keep writing
+`seen("knot_name")` consistently. See Ink Syntax Notes below.
 
 ## Action Functions
 
 Functions that fire when a dialogue option is chosen. Can target any character, not just the one being spoken to:
 
 ```
+take_item("vampire_lure")
 gain_friendship("clarisse", 15)
 lose_friendship("clarisse", 10)
 gain_romance("clarisse", 5)
 lose_romance("clarisse", 20)
 set_relationship_flag("clarisse", "is_exclusive", true)
 unlock_flag("ernst_arc_started")
+lock_flag("ernst_arc_started")
 give_knowledge("how_to_attract_vampires")
 set_variant("clarisse", "hair_colour", "red")
-set_meetup("clarisse", expires_after_visit = true)
+set_meetup_once("clarisse")
 cancel_meetup("clarisse")
 ```
+
+`unlock_flag` and `lock_flag` are the set-true / set-false pair — Ink can't give a function
+optional arguments, so a flag you need to clear later needs its own function rather than a
+second argument on `unlock_flag`.
+
+---
+
+## Ink Syntax Notes
+
+The vocabulary above is the readable, documentation-friendly shorthand. The actual `.ink`
+files have a few hard constraints that shorthand can hide:
+
+- **Function calls are positional only.** No array literals, no named/keyword arguments.
+  `lines([...], strategy: x)` and `set_meetup("id", expires_after_visit: true)` both look
+  reasonable and are both invalid Ink — see Line Pools and Meetups above for the real forms.
+- **Multi-line conditionals use `- else:`, not `} else {`:**
+  ```ink
+  { condition:
+      content
+  - else:
+      other content
+  }
+  ```
+- **Every custom function must be declared `EXTERNAL` before it's called**, or the file
+  won't compile. Rather than repeating declarations in every character file, they live in
+  one shared, included file:
+  `Assets/Hexchange/Characters/_shared/dialog-functions.ink`. Every character's `.ink`
+  files should start with:
+  ```ink
+  INCLUDE ../_shared/dialog-functions.ink
+  ```
+  Keep that file in sync with the Condition/Action Functions lists above — it's the
+  authoritative contract the C#/Lua-side bindings need to implement, arity included.
+- **Engine integration:** if a character's conversation can be re-entered more than once
+  in a session (the normal case — every repeat visit to the pub or shop), the engine needs
+  to call `story.ResetState()` before `story.ChoosePathString(knotName)` on each entry.
+  Re-entering a knot that was left via a player choice, without resetting state first,
+  throws a runtime error. This is expected — all of the actual game state (friendship,
+  flags, knowledge, items) already lives outside Ink, in the external bindings, so
+  resetting Ink's own internal state on each entry is the correct pattern, not a
+  workaround.
+- **A choice with visible text right before a `->` divert into a knot that opens with
+  action calls (`~ gain_friendship(...)`, `~ give_knowledge(...)`, etc.) runs those action
+  calls twice.** This is an `inkjs` bug, not a mistake in the content — reproduced in
+  isolation and confirmed to depend specifically on the *source* choice printing text
+  immediately before the divert (a divert straight after the choice bracket, or after a
+  logic-only line like `~ unlock_flag(...)`, is unaffected). Avoid the pattern rather than
+  working around the symptom: if a choice needs to say something distinct before handing
+  off to shared content, set a flag with a logic-only line instead of printing text, and
+  let the destination knot print the reaction conditionally on that flag. See
+  `clarisse_shared_book` in `clarisse-pub-dialogs.ink` for a worked example (the
+  "I've watched the YouTube—" branch).
+
+These files are verified to compile and run cleanly against the `inkjs` compiler/runtime;
+worth checking new character files the same way rather than assuming Inky-clean means
+engine-clean.
 
 ---
 
@@ -281,7 +358,7 @@ Shop dialogue (including brief path encounters) lives in `{id}-shop-dialogs.ink`
 
 - Short and lightweight — no deep branching
 - Focused on brief exchanges and setting up pub visits
-- Able to nudge pub presence via `set_meetup`
+- Able to nudge pub presence via `set_meetup_once` / `set_meetup_days` / `set_meetup_persistent`
 
 ---
 

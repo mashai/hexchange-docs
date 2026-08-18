@@ -23,19 +23,20 @@ Friendship only — she's not here for the player, she's here for vampires.
 ---
 
 ### Emery — The Gossiper
-Last son of a village family — no land or career to inherit. Lends a hand in the fields,
-makes himself useful, gets by. Charming, warm, genuinely smart underneath what looks like gossip.
-He knows everything about everyone because he actually pays attention to people, not because
-he's nosy. Never makes anyone uncomfortable. Reads the room perfectly — won't flirt unless
-it's welcome, but makes sure you know when he's interested. Open about himself in a way
-that catches people off guard. Unapologetically his own person when it comes to romance.
+The village gossip and a tremendous flirt — well-liked because he actually pays attention to people,
+not because he's trying to be liked. Last son of a village family — no land or career to inherit.
+Lends a hand in the fields, makes himself useful, gets by. Not bitter about it — freed him from the
+path everyone else in his family took.
+
+Sleeps around, openly, and never thinks twice about it. If he's in a romance with the player and
+they ask for exclusivity, he'll go along.
 
 Wants desperately to travel. Hasn't yet. Talks to everyone partly because he cares,
 partly because they're the world until he gets to see it.
 
 Intrigued by the player from the start. One of the characters who can draw out the player's
 backstory — he asks the kind of questions that make you want to answer them.
-Open to romance, fully.
+Open to romance, fully — no conditions, no gating arc.
 *See: emery/*
 
 ---
@@ -44,12 +45,13 @@ Open to romance, fully.
 Proper, composed, performing respectability at considerable personal cost. Publicly disapproves
 of the witch shop — loudly, if it comes up. Comes in through the side entrance when nobody's looking.
 
-Comes to the shop for a love potion — not to coerce a stranger, but to make her husband love her again.
-Over time, through conversations she has with the player while pretending not to be having them,
-she slowly arrives at the conclusion that it's the marriage that needs to go. The player doesn't
-push her there. She gets there herself.
+Comes to the shop for a love potion — not to coerce a stranger, but to bring her husband back to
+the gentle man she married. She hints, more than states, that he's not gentle with her anymore.
+Left to her own devices she doesn't question the marriage itself — the player just listening keeps
+her coming back, but it takes the player actively pushing back on her framing to move her toward
+leaving.
 
-Her arc ends with her leaving her husband. Quietly. On her own terms.
+Her arc ends, if the player pushes her there, with her leaving her husband. Quietly. On her own terms.
 The player can have one-sided flirty dialogue options during her arc — she won't register them.
 Romance only becomes available after her arc is complete and she has left her husband.
 *See: maren/*
@@ -57,16 +59,20 @@ Romance only becomes available after her arc is complete and she has left her hu
 ---
 
 ### Aldric — The Old Man
-Always at the pub. Always in the same spot. Nurses his drink and watches the room and says almost
-nothing. When he does speak it lands harder than expected.
+Lives in the village, usually found at the pub nursing a lukewarm beer. Has children and
+grandchildren who all live in the village. Mostly keeps to himself and people leave him to it,
+although he's respected by most.
 
-His grandson wants to transition. Aldric doesn't fully understand it but he understands his grandson
-is unhappy and that the witch might be able to help. He comes in quietly, asks for what he needs,
-answers questions if the player asks them. The love is not in doubt — it's just not something
-he says out loud.
+Secretly a werewolf — proud of it, never shown in-game, and never registers with the player's
+bestiary through him alone. Once the player has actually encountered a werewolf elsewhere and has
+built up enough quiet, no-agenda familiarity with him, he tests them on what they know about local
+werewolves before trusting them with anything real.
 
-What unlocks him is the player approaching without agenda, more than once, until he decides
-on his own timeline to bring up his grandson.
+His grandson doesn't want to become a werewolf, and told Aldric so directly — Aldric's the only one
+who knows, and it's kept from the rest of the family. He brings it to the player at the pub and asks
+what a witch might be able to do. The player can help with a brewed potion, or choose not to
+interfere and tell him it's not something to change — both are valid, and the friendship survives
+either one.
 
 Not open to romance.
 *See: aldric/*
@@ -84,39 +90,41 @@ Occasionally says something surprisingly perceptive buried inside something chee
 and moves on before you can register it.
 
 Open to romance — straightforward about it, same as everything else. Will not tolerate
-flirting with others if in a romance. Make an enemy of her and there are no second chances.
-The warmest character in the cast has the hardest lines.
+flirting with others if in a romance. Make an enemy of her and there are no second chances,
+no explanation given — she'll just be somewhere else.
 *See: wren/*
 
 ---
 
-### Rook — The Hunter *(traveller, nonbinary)*
+### Rook — The Hunter *(traveller)*
 
-Passes through. Kills things that need killing. Practical, unsentimental about the supernatural —
-it's a job. Confident, sarcastic, genuinely respectful. Free spirit with no interest in roots.
+Known to the village as "the hunter" — not by name. Passes through. Kills things that need killing.
+Practical, unsentimental about the supernatural — it's a job. Confident, sarcastic, genuinely
+respectful. Free spirit with no interest in roots.
 
 Not looking for love. Would do anything for the right person without making a speech about it.
 Has bestiary knowledge the player needs and shares it once trust is established.
 
 Rare appearance. When they're in the village the gossiper knows first.
 Kills dangerous creatures — the player can ignore it, agree it has to be done, or push back
-and try to change his mind. He listens. He doesn't always agree. The player's stance shapes
+and try to change their mind. They listen. They don't always agree. The player's stance shapes
 the relationship and creates friction with Clarisse's vampire hopes and the trader's contacts.
-His relationship with the trader is complicated — respect and friction in equal measure.
+Their relationship with the trader is complicated — respect and friction in equal measure.
 Open to romance. They will leave eventually. That's part of the deal.
 *See: hunter/*
 
 ---
 
-### Rowan — The Trader *(traveller, man)*
-Trades with supernatural creatures rather than killing them. Witch mother, unknown father —
-grew up between worlds, never quite fit either, chose the one that asked less of them to perform
-being normal. Guarded, precise, transactional at first. Not cold — just someone who stopped
-expecting it to go well with people.
+### Rowan — The Trader *(traveller, nonbinary)*
+Known to the village as "the trader" — not by name, same as the hunter. Trades with supernatural
+creatures rather than killing them. Witch mother, unknown father — grew up between worlds, never
+quite fit either, chose the one that asked less of them to perform being normal. Guarded, precise,
+transactional at first — not cold, just someone who's stopped expecting warmth to go well.
 
-Harder to like than the hunter, and knows it. What's underneath is unexpectedly genuine
-but the player has to earn it. Information is currency; fair exchange is respected.
-Has more nuanced bestiary knowledge than the hunter — knows these creatures as individuals.
+What's underneath is unexpectedly deep: cares genuinely about every creature they deal with — human,
+forest creature, fae, demon alike, no ranking between them. The player has to earn seeing any of it.
+Information is currency; fair exchange is respected. Knows their bestiary contacts as individuals,
+not categories.
 
 The player's shop stirs something connected to their mother. They won't bring it up.
 
@@ -241,9 +249,11 @@ No obligation to return. They make the world feel like it keeps moving whether t
 ## Mysteries
 
 ### The Personal Mystery
-The player is here for a reason — gathering knowledge, building connections, learning everything they can
-in order to save someone dear to them. This is not stated upfront. It comes out slowly, through conversation,
-as certain NPCs get close enough to start asking real questions.
+The player is here to find her sister — taken, as far as she remembers, by something supernatural
+when they were both children. Rescuing her is what everything else in the game serves. Running the
+shop is the price of the knowledge that might get her there, not the point of it. None of this is
+stated upfront. It comes out slowly, through conversation, as certain NPCs get close enough to start
+asking real questions.
 
 The player doesn't choose their backstory. It already exists. What the player chooses is whether to share it.
 
@@ -255,6 +265,10 @@ Not every character earns these questions. The ones who do ask differently based
 Clarisse doesn't judge — which makes her a natural confidant despite not being the obvious choice.
 The gossiper notices things. The travellers have seen enough of the world to recognise what someone
 running toward something looks like.
+
+This section is the reveal mechanic — which NPCs ask, what sharing unlocks. What's actually being
+revealed (the bargain with the Traveler, what really happened to her sister, and the fae/demon
+truth underneath it) is spec'd in full in player-backstory.md.
 
 ### The Crop Field Mystery
 Something is wrong with the crops. The village is unsettled. It turns out to be the neighbouring village —
@@ -269,6 +283,5 @@ the thing that's actually threatening the village is ordinary human pettiness. Q
 
 - What is the village called?
 - What do the disapprover's visits to the shop actually involve?
-- What unlocks the old man?
 - What is the history between the hunter and the trader?
 - Do the travellers ever appear in the pub at the same time?
