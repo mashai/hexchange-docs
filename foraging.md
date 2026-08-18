@@ -44,6 +44,11 @@ plant can serve either or both purposes:
 - **Forage source** — placed in/around the shop as a standing ingredient source, picked (and
   respawning) the same as any other foraging spot.
 
+Mechanically, this splits foraging spots into two placement types. A potted plant is attached to a
+Furniture piece — purchased, ordered, and freely movable around the shop like any other furniture. A
+wild foraging spot out in the forest has a fixed location — not purchasable or movable at all. Both use
+the same pick/respawn behavior underneath regardless of which placement type they are.
+
 This gives the player a way to bring foraging in-house instead of relying entirely on trips outside —
 buy the convenience with Soul Shards, or forage it for free out in the world. Ties into the "Plant
 containers" furniture type (bags, chests, barrels) in the Furniture & Display System — see

@@ -1,87 +1,23 @@
 # Current Tasks
 
-## In Progress
+## Sprint Goal (2 weeks)
+Get Book Product working end-to-end — create it as a product, open it, and receive its rewards (tarot cards, spells, etc.).
 
-### 1. Scene Blockout — *solo* 🔴 CURRENT
-Getting the scene to a stable rough draft before any gameplay work begins. Not final art — just correct layout and working systems.
+1. ✅ Done — Rewire the prompt system to support the upcoming "open book" prompt.
+2. 🔵 WIP — Grimoire UI — the central hub replacing the PC. Covers:
+   - Shop (ordering functionality migrated from PC)
+   - Tarot page — display + underlying Tarot Card/source-deck data structure
+   - Spells page — display + underlying Spell data structure
+   - Potion Recipes page — display + underlying Potion Recipe data structure
+3. ⬜ Book Product — book as a purchasable product (model, data definition).
+4. ⬜ Book-opening logic — grants rewards into the player's collection when a book is opened.
+5. ⬜ Book Setup System — editable odds/percentages for what a book can grant (tarot, spells, etc.); needs the underlying tarot/spell infrastructure to exist first.
+6. ⬜ Book Opening Experience — the full process of opening a book: animation, UI, and a skip option.
 
-**Remaining:**
-- [ ] **Navmesh agents walking through walls** — navmesh baked but agents ignore wall geometry. Likely missing colliders on walls or stale bake from pre-environment. Rebake after confirming wall colliders exist.
-- [ ] **Customers not spawning** — original StoreManager spawn logic is blocked somewhere. Needs investigation.
-- [ ] Adjust entrance to align with new exterior
-- [ ] Raise interior floor to match entrance level
-- [ ] Investigate why patio area is inaccessible
-- [ ] Add dedicated space for the cauldron
-- [ ] Add summoning circle area for deliveries
-- [ ] Reposition the till
-- [ ] Remove PC setup (keep for now, remove later)
-- [ ] Verify navmesh still works after all changes
+## Ongoing Decision
+- PC's shop functionality is migrating into the Grimoire (item 2); the PC gets removed once that migration is complete.
 
-**Later (not blocking blockout):**
-- [ ] Create textures/materials for walls, floors, roof
-
-**Done:**
-- [x] Stripped template back to bare bones
-- [x] Rough environment placed
-- [x] Adjusted store room bounds to fit new environment
-- [x] General scene cleanup — floors added, layout tidied
-- [x] NavMeshSurface installed on StoreManager (AI Navigation package)
-
----
-
-### 2. Replace Customer Prefabs — *solo/help TBD*
-Swap out the default CheckoutFrenzy customer models for ones that fit the game's aesthetic.
-Blocked until customer spawning is working.
-
-### 3. Shelf Model — *solo*
-Replacing the default CheckoutFrenzy shelf with one that fits the game's aesthetic.
-Blocked until scene blockout is stable.
-
-### 4. Book Product — *solo/help TBD*
-Creating a book as a product in the game — model, basic data definition.
-Blocked until scene blockout is stable.
-
-### 5. Delivery Box — *solo/help TBD*
-Creating the box that arrives when a book order is placed. Flagged as complex.
-Blocked until scene blockout is stable.
-
-> **Design note (not in scope yet, but important):** When ordering e.g. "Basic Spell Book Level 1", the delivery should be a box *full* of that book type — same stats, but with different visual appearance variants. This is so shelves can be stocked with individual books. Keep this in mind when designing the box and book systems.
-
-### 6. Cauldron — *solo/help TBD*
-Add a cauldron to the dedicated space in the scene.
-Blocked until scene blockout is stable (cauldron space needs to exist first).
-
-### 7. Retrieving Delivery Boxes — *needs Claude's help*
-Player picks up delivery boxes from the summoning circle.
-Blocked until Shelf Model, Book Product, and Delivery Box are done.
-
-### 8. Till Repositioning — *solo*
-Move the till to its correct location in the new environment.
-Blocked until scene blockout is stable.
-
----
-
-## Main Focus — Core Book Flow *(needs Claude's help)*
-Getting the end-to-end "stock the shop with books" loop working:
-
-1. Player orders a box of books
-2. Box appears in the summoning circle
-3. Player opens the box
-4. Player picks up a book, opens it, collects contents (spells/tarot/knowledge/recipes)
-5. Book becomes an available product on the shelf
-6. Customers can purchase it
-
----
-
-## Up Next (Not Current)
-
-### Payment System Overhaul — *major, needs Claude's help*
-Replace the CheckoutFrenzy dollar/coin system with Soul Shards. Flagged as a large task — not started yet.
-
----
-
-## Done
-- Reviewed base template (CheckoutFrenzy) structure
-- Reviewed and configured MCP Unity
-- Contributed README improvement to MCP Unity upstream repo
-- Set up docs folder and CLAUDE.md
+## Backlog (low priority, not blocking)
+- Redo navmesh — customers currently walk through walls, and should also be blocked from zones the player can still access.
+- Grimoire: Knowledge page and Bestiary page — both deliberately left out of this sprint's Grimoire work. Knowledge in particular is expected to be a hard one; revisit later.
+- Delivery Box — will need changing to support book delivery, but not this sprint's focus.
