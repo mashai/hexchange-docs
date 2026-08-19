@@ -77,21 +77,27 @@ reusable for the Cleaning spell — see Household below for why.
 
 ### Nature
 
-Discovery order: **Rain → Storm → Grow → Show magical scents.**
+Discovery order: **Show magical scents → Rain → Storm → Grow.**
 
 | Spell | Effect | Stage | Code Effort |
 |---|---|---|---|
+| Show magical scents | Activates a particle effect on every forageable item currently in the world, making them easy to spot at a glance | Early | Low-Moderate — no target-selection or pathing needed, just toggling a VFX on the existing set of forageable spawns once that spawn system exists |
 | Rain | Changes weather to rain; speeds growth for certain plants and can make some plants appear that otherwise wouldn't (see Weather & Time Sensitivity in [foraging.md](foraging.md)), raises spawn odds for certain creatures (e.g. mushroom folk) | Early | Moderate — the weather simulation itself comes from a purchased Unity Asset Store package, not built from scratch; the coding work is wiring growth-rate, plant-appearance, and spawn-chance hooks off that asset's weather state |
 | Storm | Changes weather to storm; raises spawn odds for certain creatures | Early-Mid | Moderate — shares the purchased weather asset Rain needs; name/effect still flagged as unsettled in the source material |
 | Grow | Instantly completes the respawn timer for foraged spots in range | Mid | Low-Moderate — the same clock as Foraging's existing respawn timer (see [foraging.md](foraging.md)), not a separate growth-stage system; Foraging itself is simple, so this is a small addition once that timer exists in code |
-| Show magical scents | Reveals a visible trail toward plants / high-magic areas | Mid-Late | High — needs a target-selection system before any trail/VFX work can start (see Open Question below) |
 
-Rain/Storm/Grow stages follow from the discovery order above; Show magical scents' Mid-Late stage
-was given directly.
+Show magical scents moved to first now that its effort dropped from High to Low-Moderate (see
+Resolved note below) — it's the cheapest spell in the category and the one with the fewest
+dependencies (no weather asset, no target-selection system), so it makes sense as the very first
+Nature spell a player finds rather than the last. Rain/Storm/Grow keep their original relative
+stages, unaffected by the reorder — Show magical scents sits alongside Rain at Early rather than
+displacing it.
 
-**Open Question:** what "magical scents" actually points to isn't decided — the nearest uncollected
-ingredient, whatever the player's current potion recipe still needs, or something the player
-selects directly. That has to be settled before any trail/pathing work can start.
+Resolved: earlier drafts considered a directional trail toward a single "best" ingredient, which
+needed a target-selection system (nearest uncollected item, current recipe needs, or player choice)
+before any pathing work could start. Simplified instead to a flat reveal — every forageable in the
+world gets the particle effect at once, no target selection required. That simplification is what
+made moving it to first, above, possible — the old High-effort version wasn't a realistic first spell.
 
 ### Household
 
