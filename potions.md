@@ -24,7 +24,8 @@ The cauldron has its own dedicated menu (like the PC or till) for mixing ingredi
 
 - Ingredients are either purchased or foraged (see [foraging.md](foraging.md)); some recipes need no
   purchased ingredients at all, making them pure profit compared to the base buy-and-resell loop.
-- Recipes come from Potion Recipes, unlocked by opening Potion Books — see Books in
+- Recipes come from Potion Recipes, unlocked by opening Potion Books and kept in the Potion
+  Grimoire (a separate book that reuses the Grimoire's assets) — see Books in
   [game-overview.md](game-overview.md). Same book-crate tier gating as spells (see the Spell
   Categories & List intro in [spells.md](spells.md)): a recipe's availability is just a function of
   which crate tier its Potion Book came from, no separate unlock condition.

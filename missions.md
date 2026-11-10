@@ -116,9 +116,9 @@ Listed here for scope, not as a build order.
 - **Complete potions** — untargeted ("brew N potions total") or targeted ("brew *this* recipe N
   times", `targetId` = potion recipe ID). Blocked on the Potions system (cauldron, crafting —
   scope.md "Need", third in build order, itself blocked on Foraging).
-- **Tarot reading** — shape not knowable yet; depends on how the Divination Table reading mechanic
-  actually works (scope.md), which isn't designed yet. Untargeted vs. targeted (e.g. a specific
-  spread) is an open question until that design exists.
+- **Tarot reading** — now designable: untargeted ("do N readings") or targeted ("do a reading
+  with *this* spread", `targetId` = spread ID). Readings are spec'd in [tarot.md](tarot.md); the demo's
+  "do a reading" prompt uses the untargeted form (see [demo.md](demo.md)).
 - **Find knowledge** — the least defined of the six. No Knowledge system exists yet at all — it's
   explicitly parked in current-task.md as "expected to be a hard one, revisit later."
 - **Cast spells** — untargeted ("cast N spells, any") or targeted ("cast *this* spell N times",

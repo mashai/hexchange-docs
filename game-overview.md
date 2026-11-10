@@ -4,6 +4,8 @@
 
 A cozy-dark shop management game where you play as a witch running a magic shop after making a mysterious bargain with an entity known as the Traveler (also called Old Nick, the Gentleman, Papa Legba, the Horned One, the Collector). The price of the bargain is never revealed.
 
+**The Traveler's stock comes from other places and other times.** The village sits somewhere between fantasy-medieval and medieval, but the books, tarot cards and knowledge the player receives don't have to — a 1909 tarot deck, an 1872 novel on a villager's shelf, tarot used for divination at all (historically an 18th-century practice). This is a deliberate rule, not a loose end: any anachronism in what the Traveler supplies has an in-world reason, and it adds to the mystery around him.
+
 ## Opening Narrative (TBD)
 
 > He goes by many names. Old Nick, the Gentleman, Papa Legba, the Horned One, the Collector…
@@ -20,11 +22,35 @@ A cozy-dark shop management game where you play as a witch running a magic shop 
 
 ## Starting State
 
+The game opens with the contract (see The Contract below). Once it's signed, the shop **builds itself** in the forest. When it's finished, two tarot cards float out, twirling around each other — **the Six of Wands** and **the Devil**, triumph and its price — and play begins. The player's tarot collection starts with those two cards. The Six of Wands is the player's sister's card; the Devil is the lost Visconti-Sforza Devil (see [tarot.md](tarot.md)). See The Opening in [demo.md](demo.md).
+
 The player begins with an empty shop containing:
 - A till
 - Empty shelves
 - A summoning circle (used for deliveries)
 - A broken cauldron — pure set dressing. Non-functional and cannot be repaired; a working cauldron must be purchased before potion-making is possible at all (see Potions below).
+
+## The Contract
+
+Before the shop appears, a parchment floats in the air in front of the player — the deal with the Traveler. The player can't move while it's shown.
+
+1. The player enters their character name.
+2. On **Next**, the name loses its vowels and repeated letters, and the remaining letters arrange themselves into a **sigil**.
+3. If the player doesn't like it, they can generate another. A small set of variants (around 3) loops.
+   A plain **X** is always available as a default sigil if the player doesn't want any of them.
+4. Once a sigil is chosen, the contract is signed with it in blood.
+5. Once signed, the parchment burns away in front of the player.
+
+**Until the name-to-sigil generation is built**, the player chooses from a small set of premade sigils instead (plus the default X).
+
+That sigil is the player's signature from then on — used every time the player signs a contract, and whenever they use the shop.
+
+### Signatures
+
+Customers sign too, each in their own way:
+- **Witches** sign with a sigil.
+- **People** sign with their name, or with an **X** when they pay without Soul Shards.
+- **Forest creatures** sign with an **X** or a splatter of blood or goo.
 
 ## Currency
 
@@ -47,7 +73,7 @@ The overall arc, roughly in order. No explicit win condition, but the implicit s
 
 1. **Start:** just the Core Loop above — buy and open books, forage and sell ingredients.
 2. The player discovers opening books grants knowledge/tarot cards/spells/potion recipes, not just resale value — opening a book becomes a real strategic choice (sell it sealed vs. open it) rather than "just resell everything."
-3. Two parallel short-term goals emerge: save up enough money to purchase a working cauldron (nearer-term), and collect enough tarot cards for a full set to unlock purchasing the Divination Table (longer-term, takes a while). Money is also an ongoing lever here, not just a one-time gate: better book crates cost more but yield better books, and crucially can be **specialized** — nature-themed, spell-themed, potion-themed, etc. — letting the player skew their odds toward the kind of content they're currently chasing instead of pulling from flat, uniform odds.
+3. Two parallel short-term goals emerge: save up enough money to purchase a working cauldron (nearer-term), and collect enough tarot cards to start giving readings at the Divination Table (it unlocks at 10 cards, then costs Soul Shards — not a full set; see [tarot.md](tarot.md)); full single-source decks are the longer-term collecting goal. Money is also an ongoing lever here, not just a one-time gate: better book crates cost more but yield better books, and crucially can be **specialized** — nature-themed, spell-themed, potion-themed, etc. — letting the player skew their odds toward the kind of content they're currently chasing instead of pulling from flat, uniform odds.
 4. Once the cauldron is bought, potion-making is a genuine trade-off, not a strict upgrade: it's a great way to get extra money when needed, but it's time-consuming — finding ingredients and brewing both take real effort, unlike passively reselling crates.
 5. Spells prove useful well beyond just selling them: speeding up ingredient plant growth, customizing the shop, changing the local climate, actively creating the conditions certain customers need to show up, and increasing the odds of finding rare items when opening books.
 6. Economic snowball: more money → better crates/better books → better spells, tarot, and knowledge.
@@ -72,7 +98,7 @@ The overall arc, roughly in order. No explicit win condition, but the implicit s
 
 ### What Books Contain
 - **Spells** — found spells go into the player's private stock, sellable individually or usable directly. See [spells.md](spells.md) for the full discovery/inventory/use spec.
-- **Tarot Cards** — collectible only, never sold or interacted with individually. Every card belongs to a "source deck" — real historical tarot deck editions (Rider-Waite, Marseille, Thoth, etc.), not invented in-universe ones, so art comes from sourcing/adapting existing decks rather than designing new ones from scratch (double-check public-domain/rights status per deck before committing art — Rider-Waite-Smith, 1909, is confirmed PD). Collecting a full matching-source set can take a while, so a functional deck can be assembled from mixed sources, but a deck built entirely from one source sells for more. See Tarot below for the full lifecycle.
+- **Tarot Cards** — collectible only, never sold or interacted with individually. Every card belongs to a "source deck" — chosen by aesthetic (classic, minimal, dark, opulent, folk, cozy) and filled by commissioning artists or licensing existing decks, plus public-domain Rider-Waite-Smith and story decks (the sister's Tarot de Marseille, the lost Visconti-Sforza cards). A functional deck can be assembled from mixed sources, but a deck built entirely from one source sells for more. See [tarot.md](tarot.md) for source decks, lifecycle and readings.
 - **Knowledge** — added to the Grimoire; never sold
 - **Potion Recipes** — unlocked from Potion Books; used to craft potions
 
@@ -86,15 +112,32 @@ A stone circle that expands the customer roster once ritually activated, and a s
 Requires a purchased, working cauldron (see Starting State above). See [potions.md](potions.md) for crafting, the Potion Maker helper, and the accident/mess stretch goal.
 
 ### Tarot
-Cards collected from books, never sold individually (see What Books Contain above). Collecting a full set unlocks the Divination Table. See [tarot.md](tarot.md) for the full deck lifecycle, pricing, and readings.
+Cards collected from books, never sold individually (see What Books Contain above). Spreads also come from books. The Divination Table unlocks at 10 cards (then costs Soul Shards), not a full set. See [tarot.md](tarot.md) for the full deck lifecycle, pricing, and readings.
 
 ### Grimoire
-Collects everything the player has learned:
+The central hub, replacing the PC. Its **Store** is where stock and furniture are ordered:
+- **Left page — catalog:** all store items in a grid, searchable and filterable by category.
+- **Right page — checkout:** a stack of parchment sheets. The top sheet is the cart, listing every
+  item added. To buy, the player signs it with their sigil (see The Contract above); it burns away,
+  leaving the next parchment underneath ready for a new order.
+
+It also collects everything the player has learned:
 - **Knowledge** — passive lore and gameplay hints (e.g. flowers more potent at night, vampires more likely on cloudy days, sell X potions to trigger Y)
 - **Spells** — all discovered spells; doubles as the player's live spell inventory (see What Books Contain above)
-- **Potion Recipes** — all discovered recipes
 - **Tarot Deck** — card collection progress
 - **Bestiary** — log of all customer types encountered; also the knowledge source for what conditions attract a given species (see Progression above)
+
+Page art: books are only ever shown open, never closed. The first and last spreads show the inside cover alongside a distinct first page and a distinct last page. Inside pages come in several variants that look slightly different from each other, so the book doesn't read as one repeated sheet. Pages are interchangeable between sections. Same applies to the Potion Grimoire and the Ledger.
+
+### Potion Grimoire
+Potion recipes are kept in a separate **Potion Grimoire**, not the main Grimoire. It reuses the Grimoire's assets (pages, layouts) with its own cover. See [potions.md](potions.md).
+
+### Ledger
+The end-of-day summary is a multi-page ledger — a small book, smaller than the Grimoire, with one spread per day.
+- Opens on the latest day; the player can page back to check any previous day. Every day uses the same layout, only the data changes.
+- **Left page — summary:** the end-of-day summary as it exists today (total customers, previous balance, total revenue, total spending, current balance).
+- **Right page — detail:** icons of the items sold that day, for inventory tracking, plus sections for tarot, potions and other content types.
+- Page art follows the same rule as the Grimoire: first page, last page, and several inside-page variants.
 
 ### Artifacts
 - Purchased as store supply, sellable to customers like any other product

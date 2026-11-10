@@ -69,6 +69,10 @@ threshold per species isn't mapped out yet.
 - Goblins — also a theft threat with its own countermeasures (see [goblins.md](goblins.md)); as a
   customer species they belong in this group like the rest
 
+**Mythological grounding:** see [breton-folklore.md](breton-folklore.md) for the per-species
+folklore pass — real Breton/Celtic equivalents where they exist, explicit "not native, portal-brought"
+status where they don't.
+
 **Placeholder data:** rarity and preferences for this whole group are still an unfilled block in the
 source material (Common / Artifacts and gemstones, advanced spell books, advanced potions — identical
 for all of them). Needs a real per-species design pass, not usable as-is.
@@ -78,7 +82,8 @@ for all of them). Needs a real per-species design pass, not usable as-is.
 Live in the other world and only cross over when summoned — end-game content. The Invoke Minor Demon
 spells (see Invocation in [spells.md](spells.md)) are the summoning mechanism. The Traveler, the
 entity behind the player's opening bargain (see Concept in [game-overview.md](game-overview.md)), is
-also high fae/demon, though not a shop customer.
+also high fae/demon, though not a shop customer. Burning any Devil tarot card summons him as a
+character to talk to (see Burning the Devil in [tarot.md](tarot.md)).
 
 - Imps
 - Succubus
